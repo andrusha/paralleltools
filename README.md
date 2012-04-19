@@ -74,7 +74,7 @@ sites = ['http://github.com',
 def alive(site):
 	return ping(site) > 100
 
-paralleltools.filter(alive, sites)
+result = paralleltools.filter(alive, sites)
 ```
 
 Asynchronous:  
