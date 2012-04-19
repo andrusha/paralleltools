@@ -1,4 +1,9 @@
-#!/usr/bin/env python2.7
+"""
+    Supervisor is inspired by Erlang, it's a process
+    which runs in background and if one thread is died
+    it will restart it.
+    Or propagate "stop" signal if necessary
+"""
 
 import time
 import Queue
@@ -12,7 +17,10 @@ class Supervisor(threading.Thread):
         self.klass = klass
         self.params = params
         self.stopped = False
-        
+
+        if threads < 1:
+            raise ValueError("You must run at least one thread")
+
         for _ in xrange(threads):
             self.spawn_thread()
 

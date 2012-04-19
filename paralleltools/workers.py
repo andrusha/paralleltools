@@ -1,5 +1,3 @@
-#!/usr/bin/env python2.7
-
 import threading
 
 class AbstractWorker(threading.Thread):
@@ -41,5 +39,3 @@ class MapWorker(AbstractWorker):
         self.result_queue.append(result)
         if self.result_callback is not None:
             self.result_callback(result)
-
-
