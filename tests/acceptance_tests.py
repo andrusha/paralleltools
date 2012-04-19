@@ -21,7 +21,7 @@ class AcceptanceTestCase(unittest.TestCase):
 
     def test_async_map(self):
         def callback(res):
-            assert set(res) == set(exp), res
+            assert res in exp, res
 
         lst = [1, 3, 3, 7]
         exp = [1, 9, 9, 49]
@@ -92,7 +92,7 @@ class AcceptanceTestCase(unittest.TestCase):
 
     def test_async_filter(self):
         def callback(res):
-            assert set(res) == set(exp), res
+            assert res in exp, res
 
         lst = [1, 3, 3, 7]
         exp = [1, 7]

@@ -53,10 +53,10 @@ def rotate(img):
 	Image.open(img).rotate(720).save(img)
 	return img
 
-def done(results):
-    logging.info("Yay!")
+def processed(img):
+    logging.info("Yay! %s is processed" % img)
 
-paralleltools.async_map(rotate, images, threads=20, callback=done)
+paralleltools.async_map(rotate, images, threads=20, callback=processed)
 logging.info("Cats being processed")
 ```
 
@@ -94,10 +94,10 @@ def valid(doc):
 	except lxml.etree.XMLSyntaxError:
 		return False
 
-def upload_documents(docs):
+def upload_document(doc):
 	# conspiracy
 
-paralleltools.async_filter(valid, docs, callback=upload_documents)
+paralleltools.async_filter(valid, docs, callback=upload_document)
 find_more_documents()  # while these are processed
 ```
 
@@ -116,6 +116,6 @@ Parameters:
 * `function`
 * `iterable`
 * `threads` (default = 5)
-* `result_callback` (sync) or `callback` (async)
+* `result_callback` (sync) or `callback` (async) - note, that callback is called on each result
 
 You can create your own workers by extending `AbstractWorker` in `workers.py` module. Or altering supervisor behaviour in `supervisors.py`.
