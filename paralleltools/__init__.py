@@ -1,6 +1,11 @@
-import Queue
-from workers import FilterWorker, MapWorker
-from supervisors import Supervisor
+import sys
+if sys.version_info >= (3, 0):
+    import queue as Queue
+else:
+    import Queue
+
+from paralleltools.workers import FilterWorker, MapWorker
+from paralleltools.supervisors import Supervisor
 
 all = ['filter', 'map', 'aync_filter', 'async_map']
 

@@ -1,7 +1,11 @@
+import sys
 import unittest
 import random
 
 import paralleltools
+
+if sys.version_info >= (3, 0):
+    xrange = range
 
 
 class AcceptanceTestCase(unittest.TestCase):
@@ -37,8 +41,8 @@ class AcceptanceTestCase(unittest.TestCase):
         assert set(res) == set(exp)
 
     def test_map_zero_threads(self):
-        with self.assertRaises(ValueError):
-            paralleltools.map(lambda x: x, [], threads=0)
+        test_func = lambda: paralleltools.map(lambda x: x, [], threads=0)
+        self.assertRaises(ValueError, test_func)
 
     def test_map_one_thread(self):
         # running one thread shouldn't affect ordering
@@ -109,8 +113,8 @@ class AcceptanceTestCase(unittest.TestCase):
         assert set(res) == set(exp)
 
     def test_filter_zero_threads(self):
-        with self.assertRaises(ValueError):
-            paralleltools.filter(lambda x: x, [], threads=0)
+        test_func = lambda: paralleltools.filter(lambda x: x, [], threads=0)
+        self.assertRaises(ValueError, test_func)
 
     def test_filter_one_thread(self):
         # running one thread shouldn't affect ordering

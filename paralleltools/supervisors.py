@@ -5,9 +5,16 @@
     Or propagate "stop" signal if necessary
 """
 
+import sys
 import time
-import Queue
 import threading
+
+if sys.version_info >= (3, 0):
+    import queue as Queue
+    xrange = range
+else:
+    import Queue
+
 
 class Supervisor(threading.Thread):
     def __init__(self, klass, params, work_queue, threads):
