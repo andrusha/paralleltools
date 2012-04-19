@@ -17,11 +17,11 @@ setup(
     author_email="korzhuev@andrusha.me",
     description=("A collection of basic list functions which can be run "
                  "in parallel mode (both sync or async)."),
-    long_description=read('README.md'),
+    long_description=read('README.md').split('=====')[2][:-6].strip(),
     keywords="parallel threading map filter reduce async",
-    license=read('LICENSE'),
+    license='MIT',
     url="http://github.com/andrusha/paralleltools",
-    packages=['paralleltools', 'tests'],
+    packages=['paralleltools'],
     test_suite='tests.runtests',
     classifiers=[
         "Development Status :: 4 - Beta",
@@ -33,5 +33,8 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Operating System :: OS Independent',
+        'Topic :: Software Development',
+        'Topic :: Software Development :: Libraries',
+        'Topic :: Software Development :: Libraries :: Python Modules',
     ],
 )
