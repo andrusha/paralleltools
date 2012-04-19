@@ -1,3 +1,16 @@
+"""
+     +----------------+
+     | AbstractWorker |
+     +----------------+
+        ^         ^
+        |         |
++-------+---+ +---+----------+
+| MapWorker | | FilterWorker |
++-----------+ +--------------+
+
+http://www.asciiflow.com/#8469284594412873285/1889361939
+"""
+
 import threading
 
 class AbstractWorker(threading.Thread):
