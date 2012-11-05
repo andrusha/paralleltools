@@ -4,4 +4,4 @@ python:
     - "2.7"
     - "3.2"
 install: "python setup.py install"
-script: "python -m tests.runtests"
+script: "python -m paralleltools.tests.runtests"
