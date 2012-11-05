@@ -1,3 +1,4 @@
 *.pyc
 paralleltools.egg-info
 dist
+MANIFEST
